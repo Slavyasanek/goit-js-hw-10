@@ -7,9 +7,11 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #b5c2e6;
   color: #212121;
   line-height: 1.5;
+  max-width: 1200px;
+  padding: 20px;
 }
 
 #search-box {
@@ -17,6 +19,10 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  color: #640cc9;
+  font-weight: 500;
+  border: transparent;
+  outline: none;
 }
 
 .country-list {
@@ -32,9 +38,32 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  background-color: #f7efef;
+  width: max-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
 }
 
 .country-name {
   margin: 0;
   font-size: 20px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 8px;
+  background-color: #f7efef;
+  width: max-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
+
+h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
 }
