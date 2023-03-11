@@ -18,11 +18,12 @@ const clearMarkup = () => {
 }
 
 const searchCountry = () => {
-    if (refs.searchBar.value.trim() === "") {
+    const textInput = refs.searchBar.value.trim();
+    if (textInput === "") {
         clearMarkup();
         return;
     }
-    fetchCountries(refs.searchBar.value.trim())
+    fetchCountries(textInput)
         .then((data) => listOuput(data))
         .catch(() => {
             Notiflix.Notify.failure(
