@@ -11,8 +11,15 @@ const refs = {
     outputInfo: document.querySelector('.country-info')
 }
 
+const clearMarkup = () => {
+    refs.outputCountries.innerHTML = "";
+    refs.outputInfo.innerHTML = "";
+    return;
+}
+
 const searchCountry = () => {
     if (refs.searchBar.value.trim() === "") {
+        clearMarkup();
         return;
     }
     fetchCountries(refs.searchBar.value.trim())
@@ -49,18 +56,18 @@ const renderCountries = (countries) => {
 }
 
 const listOuput = (data) => {
-    refs.outputCountries.innerHTML = "";
-    refs.outputInfo.innerHTML = "";
+    clearMarkup();
     if (data.length > 10) {
         Notiflix.Notify.info(
-            'Too many matches found. Please enter a more specific name.', {
-            timeout: 2000,
-            cssAnimationStyle: 'zoom',
-        }
+            'Too many matches found. Please enter a more specific name.',
+            {
+                timeout: 2000,
+                cssAnimationStyle: 'zoom',
+            }
         )
     } else {
         renderCountries(data);
     }
 }
 
-refs.searchBar.addEventListener("input", debounce(searchCountry, 300));
+refs.searchBar.addEventListener("input", debounce(searchCountry, DEBOUNCE_DELAY));
